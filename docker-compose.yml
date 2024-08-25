@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    image: mb
+    image: sunil3gs98/dot_application_with_mogodb:latest
     ports:
       - "5035:5035"
     environment:
