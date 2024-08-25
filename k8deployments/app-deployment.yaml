@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Dotnet-app
+  labels:
+    app: Dotnet
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Dotnet
+  template:
+    metadata:
+      labels:
+        app: Dotnet
+    spec:
+      containers:
+      - name: Dotnet
+        image: sunil3gs98/secretesanta-generator:v1.0.0
+        ports:
+        - containerPort: 8080
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Development
+        - name: MONGO_CONNECTION_STRING
+          value: mongodb://mongo:27017/ProductDB
